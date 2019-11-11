@@ -39,13 +39,14 @@ var DvdScreen = function(x, y) {
 		pos.x += direction.x;
 		pos.y += direction.y;
 	}
+	const step = function() {
+		clear();
+		updatePos();
+		draw();
+	}
 	// Parte publica !!!
 	this.start = function() {
-		interval = setInterval(() => {
-			clear();
-			updatePos();
-			draw(); 
-		}, 50);
+		interval = setInterval(step, 50);
 	}
 	this.stop = function() {
 		clearInterval(interval);
